@@ -14,7 +14,17 @@ some tentative plans include:
 horrible practices utilized, few comments, philosphy of "it works, so don't touch it" rampant
 
 ## method
-a website stores a text file that is pulically accessible, and a Raspberry Pi uses a cron job to check this site every minute.
-if the text on this website is changed, the screen updates to display "NEW MESSAGE", and a listener is put into (a|e)ffect for a button input (which is attatched to the display and uses GPIO).
-once the button is pressed, the message is displaye don screen and stays there until the cron updates again AND finds a new message.
-that's it really
+there are 2 main components here:
+
+ 1. Raspberry Pi running python in a cron job
+ 2. website hosting an editable text file
+
+this repo is only for the raspberry pi aspect.
+
+the pi runs a cron job that checks the website for updates, and if there is one, the screen will update to indicate this. a listener on the GPIO will wait for a button press to show the message on the screen, at which point the listener will stop and the cron will be the only thing running.
+
+## hardware used
+ - Raspberry Pi 4, 1GB
+ - [2.7 inch Waveshare display](https://www.amazon.com/2-7inch-Resolution-Two-Color-Interface-Raspberry/dp/B07PKSZ3XK/ref=sr_1_4)
+ - box to hold RPi, solely for presentation
+ - chord to keep pi running 24/7
