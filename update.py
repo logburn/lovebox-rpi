@@ -4,7 +4,9 @@ from customWaveshare import *
 import os
 import time
 
-resp = urllib2.urlopen('https://lukeogburn.com/lovebox/current.txt').read()
+url = "" # your lovebox url here! should look soething like the following: "https://example.com/current.txt"
+
+resp = urllib2.urlopen(url).read()
 resp = textwrap.fill(resp, 21)
 curr = open("current.txt","r").read()
 
